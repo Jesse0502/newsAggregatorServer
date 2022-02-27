@@ -1,11 +1,11 @@
 from flask import Flask
 from Home import h_blueprint
 from Signup import signup_blueprint
-# from flask_cors import CORS
+from flask_cors import CORS
 from Saved_stories import saved_blueprint
 
 application = Flask(__name__)
-# CORS(application)
+CORS(application)
 
 @application.route("/")
 def starting_url():

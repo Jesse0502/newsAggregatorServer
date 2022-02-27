@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 import json 
-import jwt
+from jose import jwt
 from Database import db
 import bcrypt
 import python_avatars as pa
@@ -49,7 +49,7 @@ def login():
             }    
                 , "secret123")
             
-            return json.dumps({"Token": token}), 200
+            return {"Token":token}, 200
         else:
             return "Either Email or password is incorrect", 200
     return "No existing user found", 200
