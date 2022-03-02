@@ -18,9 +18,9 @@ def starting_url():
     return 'Homepage', 200
 
 
-application.register_blueprint(h_blueprint, url_prefix="/api")
-application.register_blueprint(signup_blueprint, url_prefix="/api")
-application.register_blueprint(saved_blueprint, url_prefix="/api/save")
+# application.register_blueprint(h_blueprint, url_prefix="/api")
+# application.register_blueprint(signup_blueprint, url_prefix="/api")
+# application.register_blueprint(saved_blueprint, url_prefix="/api/save")
 
 if __name__ == '__main__':
     application.run(debug=True)
