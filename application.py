@@ -5,7 +5,9 @@ from flask_cors import CORS
 from Saved_stories import saved_blueprint
 
 application = Flask(__name__)
-CORS(application)
+CORS(application, resources={
+    f'/*'
+})
 
 @application.route("/")
 def starting_url():
