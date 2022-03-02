@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, Response
 import json
 from search_query import getSearch
 from top_headlines import getTopheadlines, getTopics
@@ -7,6 +7,8 @@ h_blueprint = Blueprint("home", __name__)
 
 @h_blueprint.route("", methods=["GET"])
 def home():
+    response = Response()
+    response.headers['Access-Control-Allow-Origin'] = '*'
     countryCode = request.args['cc']
     query = request.args['q']
     print(countryCode)
@@ -20,6 +22,8 @@ def home():
 
 @h_blueprint.route("/search", methods=["GET"])
 def search():
+    response = Response()
+    response.headers['Access-Control-Allow-Origin'] = '*'
     countryCode = request.args['cc']
     query = request.args['q']
     limit = request.args['lim']

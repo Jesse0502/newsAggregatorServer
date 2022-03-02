@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, Response
 import json 
 from jose import jwt
 from Database import db
@@ -11,6 +11,8 @@ signup_blueprint = Blueprint("signup", __name__)
 
 @signup_blueprint.route("/signup", methods=["POST"])
 def signup():
+    response = Response()
+    response.headers['Access-Control-Allow-Origin'] = '*'
     form_data = request.json 
     data = form_data['data'] 
     coll = db['users']
@@ -30,6 +32,8 @@ def signup():
     
 @signup_blueprint.route("/login", methods=["POST"])
 def login():
+    response = Response()
+    response.headers['Access-Control-Allow-Origin'] = '*'
     form_data = request.json
     data = form_data['data']
     coll = db['users']
