@@ -1,17 +1,16 @@
 from flask import Flask, Response
-from Home import h_blueprint
-from Signup import signup_blueprint
-from flask_cors import CORS, cross_origin
-from Saved_stories import saved_blueprint
+# from Home import h_blueprint
+# from Signup import signup_blueprint
+from flask_cors import CORS
+# from Saved_stories import saved_blueprint
 
 
 application = Flask(__name__)
 cors = CORS(application)
-application.config['CORS_HEADERS'] = 'Content-Type'
+# application.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@application.route("/")
-@cross_origin()
+@application.route("/") 
 def starting_url():
     response = Response()
     response.headers['Access-Control-Allow-Origin'] = '*'
